@@ -3,18 +3,19 @@ package day08;
 import java.util.*;
 
 public class Searchelement {
-    public static int getLargest(int matrix[][]){
-        int largest = Integer.MIN_VALUE;
+    public static boolean search(int matrix[][], int key){
         for(int i = 0; i<matrix.length; i++){
             for(int j = 0; j<matrix[0].length; j++){
-                if( largest < matrix[i][j]){
-                    largest = matrix[i][j];
-                    
+                if(matrix[i][j] == key){
+            System.out.println("Found at cell ("+i+","+j+")");
+                    return true;
                 
                 }
             }
         }
-       return largest;
+        System.out.println("Key not found");
+        return false;
+       
     }
         public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -32,6 +33,6 @@ public class Searchelement {
             System.out.println();
         }
         sc.close();
-        System.out.println(getLargest(matrix));
+        search(matrix, 5);
     }  
 }
